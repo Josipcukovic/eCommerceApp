@@ -1,3 +1,7 @@
+const AppStrings = {
+  LOGOUT_SUCCESS: "You are logged out",
+};
+
 const ErrorStrings = {
   CAST_TO_OBJECTID_FAILED: "Cast to ObjectId failed",
   INVALID_ID: "Invalid ID",
@@ -5,6 +9,7 @@ const ErrorStrings = {
   NOT_EXISTING_TOKEN: "Token doesn't exist",
   INVALID_TOKEN: "Invalid token",
   UNAUTHORIZED: "Unauthorized, you can't perform this task",
+  INVALID_EMAIL_OR_PASSWORD: "Incorrect password or email",
 };
 
-export { ErrorStrings };
+export { ErrorStrings, AppStrings };

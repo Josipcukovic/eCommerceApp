@@ -13,6 +13,10 @@ class Helpers {
     return await bcrypt.hash(password, AppConstants.saltRounds);
   }
 
+  static async compareHashPassword(password: string, hashedPassword: string) {
+    return bcrypt.compare(password, hashedPassword);
+  }
+
   static validatePassword(password: string | undefined) {
     if ((password?.length || 0) < 6) throw new BadRequestError(ErrorStrings.INVALID_PASS_LENGTH);
   }
@@ -40,6 +44,10 @@ class Helpers {
     const userEmail = (jwt.decode(req.cookies.ecommerceApp) as JWTPayload).email;
     const userId = (jwt.decode(req.cookies.ecommerceApp) as JWTPayload).id;
     return { email: userEmail, id: userId };
+  }
+
+  static loginDataIsEmpty(data: { email: string; password: string }) {
+    return !data.password || !data.email || !data.password.toString().trim() || !data.email.toString().trim();
   }
 }
 
