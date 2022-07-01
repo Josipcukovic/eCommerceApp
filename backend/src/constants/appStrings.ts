@@ -10,6 +10,7 @@ const ErrorStrings = {
   INVALID_TOKEN: "Invalid token",
   UNAUTHORIZED: "Unauthorized, you can't perform this task",
   INVALID_EMAIL_OR_PASSWORD: "Incorrect password or email",
+  INTERNAL_SERVER_ERROR: "Internal server error",
 };
 
 export { ErrorStrings, AppStrings };
