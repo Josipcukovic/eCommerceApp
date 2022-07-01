@@ -21,6 +21,28 @@ const errorTypes = {
   FORBIDDEN: "Forbidden",
 };
 
+enum ProductCategories {
+  Fashion = "Fashion",
+  Electronic = "Electronic",
+  Cars = "Cars",
+  HomeGarden = "Home & Garden",
+  Gifts = "Gifts",
+  Music = "Music",
+  HealthBeauty = "Health & Beauty",
+  Pets = "Pets",
+  BabyToys = "Baby Toys",
+  Books = "Books",
+}
+
+enum Brands {
+  Apple = "Apple",
+  Samsung = "Samsung",
+  Oppo = "Oppo",
+  Vivo = "Vivo",
+  Redmi = "Redmi",
+  Sony = "Sony",
+}
+
 const AppConstants = {
   Roles,
   httpStatusCodes,
@@ -31,6 +53,8 @@ const AppConstants = {
   tokenExpireTime: 60 * 60 * 24,
   cookieExpireTime: 60 * 60 * 24 * 1000,
   oneDayInMs: 24 * 60 * 60 * 1000,
+  ProductCategories,
+  Brands,
 };
 
 export = AppConstants;
