@@ -7,6 +7,7 @@ import { Response, Request } from "express";
 import { config } from "../config";
 import { UserDocument } from "../models/userModel";
 import { JWTPayload } from "../types";
+import { toInteger } from "lodash";
 
 class Helpers {
   static async hashPassword(password: string) {
@@ -48,6 +49,39 @@ class Helpers {
 
   static loginDataIsEmpty(data: { email: string; password: string }) {
     return !data.password || !data.email || !data.password.toString().trim() || !data.email.toString().trim();
+  }
+
+  static getPaginationData(req: Request) {
+    const { pageSize, pageNumber } = req.query;
+
+    let size = Math.abs(toInteger(pageSize));
+    let number = Math.abs(toInteger(pageNumber));
+
+    if (!size) size = AppConstants.pageSize;
+    if (!number) number = AppConstants.pageNumber;
+
+    const skip = (number - 1) * size;
+
+    return { pageSize: size, pageNumber: number, skip };
+  }
+
+  static async getPaginationDetails(pageSize: number, totalItems: number) {
+    return {
+      totalItems,
+      lastPageNumber: Math.ceil(totalItems / toInteger(pageSize)),
+    };
+  }
+
+  static getPageData<T>(data: T[], pageNumber: number, pageSize: number) {
+    let pageData = [];
+    const number = (pageNumber - 1) * pageSize;
+
+    for (let i = number; i < number + pageSize; i++) {
+      if (!data[i]) break;
+      pageData.push(data[i]);
+    }
+
+    return pageData;
   }
 }
 

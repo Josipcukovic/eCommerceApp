@@ -1,5 +1,7 @@
 const AppStrings = {
   LOGOUT_SUCCESS: "You are logged out",
+  UPDATE_SUCCESS: "Updated succesfully",
+  DELETE_SUCCESS: "Deleted succesfully!",
 };
 
 const ErrorStrings = {
