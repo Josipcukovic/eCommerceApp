@@ -5,4 +5,10 @@ type JWTPayload = {
   id: string;
 };
 
-export { SuccessData, JWTPayload };
+type CartItem = {
+  productId: string;
+  quantity: number;
+  totalPrice: number;
+};
+
+export { SuccessData, JWTPayload, CartItem };

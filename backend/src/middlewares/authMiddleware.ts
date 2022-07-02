@@ -26,6 +26,23 @@ class AuthMiddleware {
       }
     });
   }
+
+  static requireAdmin(req: Request, res: Response, next: NextFunction) {
+    const token = req.cookies.ecommerceApp;
+    if (!token) return next(new UnauthorizedError(ErrorStrings.NOT_EXISTING_TOKEN));
+
+    jwt.verify(token, process.env.TOKEN_SECRET_STRING!, async (error: any, decodedToken: any) => {
+      if (error) return next(new UnauthorizedError(ErrorStrings.INVALID_TOKEN));
+
+      const userId = decodedToken.id;
+      const user = await UserRepository.getUserById(userId);
+
+      if (!user) return next(new UnauthorizedError(ErrorStrings.UNAUTHORIZED));
+
+      if (user.role === "admin") return next();
+      return next(new UnauthorizedError(ErrorStrings.UNAUTHORIZED));
+    });
+  }
 }
 
 export = AuthMiddleware;

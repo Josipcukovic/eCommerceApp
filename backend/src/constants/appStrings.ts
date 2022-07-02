@@ -13,6 +13,8 @@ const ErrorStrings = {
   UNAUTHORIZED: "Unauthorized, you can't perform this task",
   INVALID_EMAIL_OR_PASSWORD: "Incorrect password or email",
   INTERNAL_SERVER_ERROR: "Internal server error",
+  ITEM_REQUIRED: "At least one item must be provided",
+  PRODUCT_DOESNT_EXIST: "Product with provided ID doesn't exist",
 };
 
 export { ErrorStrings, AppStrings };

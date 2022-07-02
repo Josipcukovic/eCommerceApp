@@ -8,6 +8,7 @@ import { config } from "../config";
 import { UserDocument } from "../models/userModel";
 import { JWTPayload } from "../types";
 import { toInteger } from "lodash";
+import { CartInput } from "../models/cartModel";
 
 class Helpers {
   static async hashPassword(password: string) {
@@ -82,6 +83,11 @@ class Helpers {
     }
 
     return pageData;
+  }
+
+  static cartNotEmpty(data: CartInput) {
+    if (!data.items?.length) throw new BadRequestError(ErrorStrings.ITEM_REQUIRED);
+    return true;
   }
 }
 
