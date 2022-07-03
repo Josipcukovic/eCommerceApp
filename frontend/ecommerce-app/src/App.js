@@ -1,13 +1,18 @@
 import "./App.css";
 import Header from "./components/header/Header";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Pages from "./pages/Pages";
 
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <Switch>{/* <Route path="/" exact></Route> */}</Switch>
+        <Switch>
+          <Route path="/" exact>
+            <Pages />
+          </Route>
+        </Switch>
       </Router>
     </>
   );
