@@ -259,6 +259,119 @@ header ul li a:hover {
   height: 100%;
 }
 
+main .login_form {
+  width: 400px;
+  height: 370px;
+  background: #f9f9fd;
+  border: 0.5px solid #ecedf5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  margin: 154px auto 30px auto;
+  text-align: center;
+}
+
+main .login_form--register {
+  height: 500px;
+}
+
+main .login_form h2 {
+  margin: 44px auto 49px auto;
+  text-align: center;
+}
+
+main .login_form form input {
+  background: #ffffff;
+  border-radius: 3px;
+  width: 330px;
+  height: 42px;
+}
+
+main .login_form form input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 13px 40px 12px 20px;
+  color: #5f6b8a;
+}
+
+main .login_form form input[type="password"] {
+  border: none;
+  outline: none;
+  padding: 13px 40px 12px 20px;
+  color: #5f6b8a;
+}
+
+main .login_form form .email,
+main .login_form form .password,
+main .login_form form .firstName,
+main .login_form form .lastName {
+  margin-bottom: 30px;
+}
+
+main .login_form form .eye {
+  float: right;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  left: -12%;
+  margin-top: 3%;
+}
+
+main .login_form form .danger {
+  color: red;
+  font-weight: bold;
+  padding: 2%;
+}
+
+main .login_form form button {
+  width: 330px;
+  height: 36px;
+  background: #121ec8;
+  border: 1px solid #121ec8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+main .need_account {
+  width: 400px;
+  height: 92px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #f9f9fd;
+  border: 0.5px solid #ecedf5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+main .need_account img {
+  margin: 14px 34px 0px 28px;
+}
+
+main .need_account .register {
+  margin-top: 32px;
+}
+
+main .need_account .register h3 {
+  color: #5f6b8a;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+main .need_account .register p {
+  color: #121ec8;
+  cursor: pointer;
+  font-size: 12px;
+}
+
 .cart-items {
   background: #f6f9fc;
   height: auto;

@@ -1,9 +1,14 @@
 import React from "react";
+import RegisterForm from "../components/register/RegisterForm";
+import HaveAccount from "../components/register/HaveAccount";
 
 const RegisterPage = () => {
   return (
     <>
-      <h1>Register Page</h1>
+      <main>
+        <RegisterForm />
+        <HaveAccount />
+      </main>
     </>
   );
 };

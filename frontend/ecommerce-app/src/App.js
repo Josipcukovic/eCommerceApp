@@ -53,9 +53,15 @@ function App() {
   return (
     <>
       <Router>
-        <Header cartItem={cartItem} />
         <Switch>
           <Route path="/" exact>
+            <LoginPage />
+          </Route>
+          <Route path="/register" exact>
+            <RegisterPage />
+          </Route>
+          <Route path="/home" exact>
+            <Header cartItem={cartItem} />
             <Pages productItems={productItems} addToCart={addToCart} />
           </Route>
           <Route path="/cart" exact>
@@ -66,8 +72,6 @@ function App() {
               removeCart={removeCart}
             />
           </Route>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
         </Switch>
       </Router>
     </>
