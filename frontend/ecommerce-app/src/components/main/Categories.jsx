@@ -19,28 +19,8 @@ const Categories = () => {
       categoryName: "Home & Garden",
     },
     {
-      categoryImage: "./images/category/cat5.png",
-      categoryName: "Gifts",
-    },
-    {
-      categoryImage: "./images/category/cat6.png",
-      categoryName: "Music",
-    },
-    {
       categoryImage: "./images/category/cat7.png",
       categoryName: "Health & Beauty",
-    },
-    {
-      categoryImage: "./images/category/cat8.png",
-      categoryName: "Pets",
-    },
-    {
-      categoryImage: "./images/category/cat9.png",
-      categoryName: "Baby Toys",
-    },
-    {
-      categoryImage: "./images/category/cat10.png",
-      categoryName: "Groceries",
     },
     {
       categoryImage: "./images/category/cat11.png",

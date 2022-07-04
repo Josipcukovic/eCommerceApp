@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 
 const NextArrow = (props) => {
@@ -38,7 +38,7 @@ const DealCard = ({ productItems, addToCart }) => {
       <Slider {...settings}>
         {productItems.map((productItems) => {
           return (
-            <div className="box">
+            <div className="box" key={productItems.id}>
               <div className="product mtop">
                 <div className="img">
                   <span className="discount">{productItems.discount}% Off</span>

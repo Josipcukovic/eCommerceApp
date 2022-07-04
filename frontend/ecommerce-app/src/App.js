@@ -5,6 +5,8 @@ import Pages from "./pages/Pages";
 import Cart from "./components/cart/Cart";
 import dealsData from "./components/goodDeals/DealsData";
 import { useState } from "react";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   const { productItems } = dealsData;
@@ -64,6 +66,8 @@ function App() {
               removeCart={removeCart}
             />
           </Route>
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Switch>
       </Router>
     </>
