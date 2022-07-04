@@ -63,7 +63,7 @@
 }
 
 .search--active {
-  height: 12vh;
+  height: 20vh;
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -87,7 +87,7 @@
   height: 20px;
   border-radius: 50%;
   text-align: center;
-  background-color: #e94560;
+  background-color: #121ec8;
   font-size: 12px;
   color: #fff;
 }
@@ -257,6 +257,110 @@ header ul li a:hover {
 .homeSlide .box img {
   width: 100%;
   height: 100%;
+}
+
+.cart-items {
+  background: #f6f9fc;
+  height: auto;
+  padding: 50px 0;
+}
+
+.cart-items .cart-details {
+  width: 70%;
+}
+
+.cart-items .cart-details h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.cart-items .cart-details h4 {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: 400;
+  color: grey;
+}
+
+.cart-items .cart-total {
+  width: 30%;
+  margin-top: 30px;
+  margin-left: 30px;
+  height: 130px;
+}
+
+.cart-items .img {
+  width: 150px;
+  height: 150px;
+}
+
+.cart-items img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.cart-items h4 span {
+  color: #121ec8;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.cart-list {
+  background: #fff;
+  margin-top: 30px;
+}
+
+.removeCart {
+  background: none;
+  font-size: 25px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.cartControl {
+  margin-top: 50px;
+}
+
+.cartControl button {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.incrementCart {
+  background: none;
+}
+
+.decrementCart {
+  background: none;
+}
+
+.cart-total h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #030008;
+  padding-bottom: 10px;
+}
+
+.cart-total h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #121ec8;
+}
+
+.cart-total h4 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.no-items {
+  font-size: 18px;
+  margin-top: 30px;
+  height: 130px;
 }
 
 * {
