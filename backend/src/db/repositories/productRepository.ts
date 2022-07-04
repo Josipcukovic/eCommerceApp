@@ -11,8 +11,12 @@ class ProductRepository {
     }
   }
 
-  static async getAllProducts() {
-    return await productModel.find({});
+  static async getAllProducts(pageSize: number, skip: number) {
+    const products = await productModel.find({}).sort("-createdAt").skip(skip).limit(pageSize);
+
+    const productCount = await productModel.countDocuments({});
+
+    return { products, productCount };
   }
 
   static async getProductById(productId: string) {

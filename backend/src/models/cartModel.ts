@@ -30,6 +30,7 @@ interface CartInput {
   items: CartItem[];
   totalPrice: number;
   userId: ObjectId;
+  shipped: boolean;
 }
 
 interface CartDocument extends CartInput, mongoose.Document {
@@ -52,6 +53,10 @@ const cartSchema = new mongoose.Schema(
       trim: true,
       ref: "user",
       immutable: true,
+    },
+    shipped: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }

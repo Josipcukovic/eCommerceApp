@@ -15,6 +15,8 @@ const ErrorStrings = {
   INTERNAL_SERVER_ERROR: "Internal server error",
   ITEM_REQUIRED: "At least one item must be provided",
   PRODUCT_DOESNT_EXIST: "Product with provided ID doesn't exist",
+  BOOLEAN_REQUIRED: "Variable must be of type boolean",
+  NOT_EXISTING_PRODUCT: "Product with provided ID doesn't exist",
 };
 
 export { ErrorStrings, AppStrings };
