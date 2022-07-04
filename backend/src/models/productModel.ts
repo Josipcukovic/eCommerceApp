@@ -9,6 +9,7 @@ interface ProductInput {
   price: number;
   category: string;
   brand: string;
+  discount: number;
 }
 
 interface ProductDocument extends ProductInput, mongoose.Document {
@@ -48,6 +49,12 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: Brands,
+  },
+  discount: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 100,
   },
 });
 
