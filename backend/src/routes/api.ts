@@ -8,7 +8,7 @@ const api = express.Router();
 
 api.use("/auth", authRouter);
 api.use(productRouter);
-api.use("/cart", cartRouter);
+api.use(cartRouter);
 api.use(handleErrors);
 
 export = api;

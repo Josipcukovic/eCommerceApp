@@ -31,6 +31,48 @@ class CartController {
       return next(error);
     }
   }
+
+  static async getAllCarts(req: Request, res: Response, next: NextFunction) {
+    const { pageSize, skip } = Helpers.getPaginationData(req);
+
+    try {
+      const { carts, cartCount } = await CartRepository.getAllCarts(pageSize, skip);
+      const paginationData = await Helpers.getPaginationDetails(pageSize, cartCount);
+
+      return SuccessResponses.okResponse(res, { carts, paginationData });
+    } catch (error) {
+      return next(error);
+    }
+  }
+
+  static async getCart(req: Request, res: Response, next: NextFunction) {
+    const { cartId } = req.params;
+
+    try {
+      const cart = await CartRepository.getCartById(cartId);
+      if (!cart) throw new BadRequestError(ErrorStrings.INVALID_ID);
+
+      return SuccessResponses.okResponse(res, cart);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async updateShippedStatus(req: Request, res: Response, next: NextFunction) {
+    const { cartId } = req.params;
+    const { shipped } = req.body;
+
+    try {
+      if (typeof shipped !== "boolean") throw new BadRequestError(ErrorStrings.BOOLEAN_REQUIRED);
+
+      const updated = await CartRepository.updateStatus(shipped, cartId);
+      if (!updated) throw new BadRequestError(ErrorStrings.INVALID_ID);
+
+      return SuccessResponses.okResponse(res, updated);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 export = CartController;

@@ -20,9 +20,13 @@ class ProductController {
   }
 
   static async getAllProducts(req: Request, res: Response, next: NextFunction) {
+    const { pageSize, skip } = Helpers.getPaginationData(req);
+
     try {
-      const products = await ProductRepository.getAllProducts();
-      return SuccessResponses.okResponse(res, products);
+      const { products, productCount } = await ProductRepository.getAllProducts(pageSize, skip);
+      const paginationData = await Helpers.getPaginationDetails(pageSize, productCount);
+
+      return SuccessResponses.okResponse(res, { products, paginationData });
     } catch (error) {
       return next(error);
     }

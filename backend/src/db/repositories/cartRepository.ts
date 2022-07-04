@@ -9,6 +9,30 @@ class CartRepository {
       return getMongoErrors(error);
     }
   }
+
+  static async getAllCarts(pageSize: number, skip: number) {
+    const carts = await cartModel.find({ shipped: false }).sort("-createdAt").skip(skip).limit(pageSize);
+
+    const cartCount = await cartModel.countDocuments({ shipped: false });
+
+    return { carts, cartCount };
+  }
+
+  static async getCartById(cartId: string) {
+    try {
+      return await cartModel.findById(cartId);
+    } catch (error) {
+      return getMongoErrors(error);
+    }
+  }
+
+  static async updateStatus(shippedStatus: boolean, cartId: string) {
+    try {
+      return await cartModel.findByIdAndUpdate(cartId, { shipped: shippedStatus }, { new: true });
+    } catch (error) {
+      return getMongoErrors(error);
+    }
+  }
 }
 
 export = CartRepository;
