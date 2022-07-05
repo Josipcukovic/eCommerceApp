@@ -9,6 +9,8 @@ import RegisterPage from "./pages/RegisterPage";
 import User from "./pages/User";
 import axios from "axios";
 import AuthContext from "./components/context/AuthContext";
+import NewProduct from "./components/admin/NewProduct";
+import AllProducts from "./components/admin/AllProducts";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -22,12 +24,11 @@ function App() {
       })
       .then((res) => {
         setCurrentUser(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  });
 
   const addToCart = (product) => {
     const productCart = cartItem.find((item) => item._id === product._id);
@@ -92,6 +93,14 @@ function App() {
           <Route path="/user" exact>
             <Header cartItem={cartItem} />
             <User />
+          </Route>
+          <Route path="/newProduct">
+            <Header />
+            <NewProduct />
+          </Route>
+          <Route path="/allProducts">
+            <Header />
+            <AllProducts />
           </Route>
         </Switch>
       </Router>

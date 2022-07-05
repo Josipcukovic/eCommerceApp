@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import { useContext } from "react";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -61,7 +60,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenu(false)}
               >
                 <li>
-                  <Link to="/create">Create</Link>
+                  <Link to="/newProduct">Create</Link>
                 </li>
                 <li>
                   <Link to="/user">User Account</Link>

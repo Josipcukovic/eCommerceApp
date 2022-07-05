@@ -20,7 +20,7 @@ const Cart = ({ cartItem, addToCart, decreaseQuantity, removeCart }) => {
             {cartItem.map((item) => {
               const productQuantity = item.price * item.qty;
               return (
-                <div className="cart-list product d_flex">
+                <div className="cart-list product d_flex" key={item._id}>
                   <div className="img">
                     <img src={item.pictureUrl} alt="Product" />
                   </div>

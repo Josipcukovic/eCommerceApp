@@ -21,7 +21,7 @@ const User = () => {
 
   return (
     <>
-      <div className="user" key={user._id}>
+      <div className="user">
         <div className="user__details">
           <h1>User info</h1>
           <h4>

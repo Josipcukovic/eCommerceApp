@@ -12,10 +12,6 @@ const RegisterForm = () => {
   const history = useHistory();
   const { setCurrentUser, currentUser } = useContext(AuthContext);
 
-  useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
-
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -35,7 +31,7 @@ const RegisterForm = () => {
       }
     );
     setCurrentUser(response.data);
-    // history.push("/home");
+    history.push("/home");
   }
 
   return (

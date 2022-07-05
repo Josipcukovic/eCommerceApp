@@ -164,6 +164,14 @@ button {
   margin: 10px;
 }
 
+.product.mtop {
+  height: 400px;
+}
+
+.product.mtop img {
+  max-height: 230px;
+}
+
 .product img {
   height: 100%;
   width: 100%;
@@ -177,6 +185,10 @@ button {
 .product .price {
   display: flex;
   justify-content: space-between;
+}
+
+.product-details {
+  margin-top: 20px;
 }
 
 .product button {
@@ -194,6 +206,10 @@ button {
   cursor: pointer;
   background-color: #121ec8;
   color: #fff;
+}
+
+.admin {
+  width: 250px;
 }
 
 .control-btn .next,
@@ -229,4 +245,10 @@ button {
   background: #121ec8;
   color: white;
   cursor: pointer;
+}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }

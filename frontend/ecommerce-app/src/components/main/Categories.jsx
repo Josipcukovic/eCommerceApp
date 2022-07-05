@@ -14,18 +14,6 @@ const Categories = () => {
       categoryImage: "./images/category/cat3.png",
       categoryName: "Cars",
     },
-    {
-      categoryImage: "./images/category/cat4.png",
-      categoryName: "Home & Garden",
-    },
-    {
-      categoryImage: "./images/category/cat7.png",
-      categoryName: "Health & Beauty",
-    },
-    {
-      categoryImage: "./images/category/cat11.png",
-      categoryName: "Books",
-    },
   ];
   return (
     <>

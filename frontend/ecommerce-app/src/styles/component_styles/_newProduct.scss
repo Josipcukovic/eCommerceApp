@@ -1,0 +1,48 @@
+.newProduct {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  &__details {
+    box-shadow: rgb(43, 52, 69 / 10%) 0px 4px 16px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    justify-content: center;
+  }
+
+  h1 {
+    padding-bottom: 20px;
+  }
+
+  input {
+    background: $whiteColor;
+    border-radius: 3px;
+    width: 330px;
+    height: 42px;
+    outline: none;
+    border: 1px solid black;
+    padding: 13px 40px 12px 20px;
+  }
+
+  .name,
+  .picture,
+  .price,
+  .product_category {
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 330px;
+    height: 36px;
+    background: #121ec8;
+    border: 1px solid #121ec8;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: $whiteColor;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+}
