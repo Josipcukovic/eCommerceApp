@@ -22,7 +22,7 @@ const Cart = ({ cartItem, addToCart, decreaseQuantity, removeCart }) => {
               return (
                 <div className="cart-list product d_flex">
                   <div className="img">
-                    <img src={item.cover} alt="Product" />
+                    <img src={item.pictureUrl} alt="Product" />
                   </div>
                   <div className="cart-details">
                     <h3>{item.name}</h3>

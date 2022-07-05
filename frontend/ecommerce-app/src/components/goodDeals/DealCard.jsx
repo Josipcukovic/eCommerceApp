@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import axios from "axios";
 
 const NextArrow = (props) => {
   const { onClick } = props;
@@ -23,7 +24,9 @@ const PreviousArrow = (props) => {
   );
 };
 
-const DealCard = ({ productItems, addToCart }) => {
+const DealCard = ({ addToCart }) => {
+  const [products, setProducts] = useState([]);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -33,22 +36,38 @@ const DealCard = ({ productItems, addToCart }) => {
     nextArrow: <NextArrow />,
     prevArrow: <PreviousArrow />,
   };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3003/products", {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((res) => {
+        console.log(res.data.products);
+        setProducts(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <>
       <Slider {...settings}>
-        {productItems.map((productItems) => {
+        {products.map((product) => {
           return (
-            <div className="box" key={productItems.id}>
-              <div className="product mtop">
+            <div className="box" key={product._id}>
+              <div className="product mtop" key={product._id}>
                 <div className="img">
-                  <span className="discount">{productItems.discount}% Off</span>
-                  <img src={productItems.cover} alt="Product" />
+                  <span className="discount">{product.discount}% Off</span>
+                  <img src={product.pictureUrl} alt="Product" />
                 </div>
                 <div className="product-details">
-                  <h3>{productItems.name}</h3>
+                  <h3>{product.name}</h3>
                   <div className="price">
-                    <h4>${productItems.price}.00</h4>
-                    <button onClick={() => addToCart(productItems)}>
+                    <h4>${product.price}.00</h4>
+                    <button onClick={() => addToCart(product)}>
                       <i className="fa fa-plus"></i>
                     </button>
                   </div>

@@ -3,23 +3,20 @@ import Header from "./components/header/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Pages from "./pages/Pages";
 import Cart from "./components/cart/Cart";
-import dealsData from "./components/goodDeals/DealsData";
 import { useState } from "react";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
 function App() {
-  const { productItems } = dealsData;
-
   const [cartItem, setCartItem] = useState([]);
 
   const addToCart = (product) => {
-    const productCart = cartItem.find((item) => item.id === product.id);
+    const productCart = cartItem.find((item) => item._id === product._id);
 
     if (productCart) {
       setCartItem(
         cartItem.map((item) =>
-          item.id === product.id
+          item._id === product._id
             ? { ...productCart, qty: productCart.qty + 1 }
             : item
         )
@@ -30,14 +27,14 @@ function App() {
   };
 
   const decreaseQuantity = (product) => {
-    const productCart = cartItem.find((item) => item.id === product.id);
+    const productCart = cartItem.find((item) => item._id === product._id);
 
     if (productCart.qty === 1) {
-      setCartItem(cartItem.filter((item) => item.id !== product.id));
+      setCartItem(cartItem.filter((item) => item._id !== product._id));
     } else {
       setCartItem(
         cartItem.map((item) =>
-          item.id === product.id
+          item._id === product._id
             ? { ...productCart, qty: productCart.qty - 1 }
             : item
         )
@@ -46,7 +43,7 @@ function App() {
   };
 
   const removeCart = (product) => {
-    const productCart = cartItem.filter((item) => item.id !== product.id);
+    const productCart = cartItem.filter((item) => item._id !== product._id);
     setCartItem(productCart);
   };
 
@@ -62,9 +59,10 @@ function App() {
           </Route>
           <Route path="/home" exact>
             <Header cartItem={cartItem} />
-            <Pages productItems={productItems} addToCart={addToCart} />
+            <Pages addToCart={addToCart} />
           </Route>
           <Route path="/cart" exact>
+            <Header cartItem={cartItem} />
             <Cart
               cartItem={cartItem}
               addToCart={addToCart}

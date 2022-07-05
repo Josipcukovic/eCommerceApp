@@ -380,6 +380,7 @@ main .need_account .register p {
 
 .cart-items .cart-details {
   width: 70%;
+  margin-left: 40px;
 }
 
 .cart-items .cart-details h3 {

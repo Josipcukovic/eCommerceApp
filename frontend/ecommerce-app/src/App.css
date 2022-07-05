@@ -164,6 +164,11 @@ button {
   margin: 10px;
 }
 
+.product img {
+  height: 100%;
+  width: 100%;
+}
+
 .product h3 {
   font-weight: 400;
   font-size: 17px;

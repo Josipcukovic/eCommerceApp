@@ -1,7 +1,7 @@
 import React from "react";
 import DealCard from "./DealCard";
 
-const GoodDeals = ({ productItems, addToCart }) => {
+const GoodDeals = ({ addToCart }) => {
   return (
     <>
       <section className="flash background">
@@ -10,7 +10,7 @@ const GoodDeals = ({ productItems, addToCart }) => {
             <i className="fa fa-bolt"></i>
             <h1>Good Deals</h1>
           </div>
-          <DealCard productItems={productItems} addToCart={addToCart} />
+          <DealCard addToCart={addToCart} />
         </div>
       </section>
     </>
