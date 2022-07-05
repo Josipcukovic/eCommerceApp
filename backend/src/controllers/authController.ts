@@ -47,10 +47,14 @@ class AuthController {
 
     try {
       user = await UserRepository.getUserByEmail(email);
-      if (!user) throw new BadRequestError(ErrorStrings.INVALID_EMAIL_OR_PASSWORD);
+      if (!user)
+        throw new BadRequestError(ErrorStrings.INVALID_EMAIL_OR_PASSWORD);
 
       const match = await Helpers.compareHashPassword(password, user.password);
-      if (!match) return next(new BadRequestError(ErrorStrings.INVALID_EMAIL_OR_PASSWORD));
+      if (!match)
+        return next(
+          new BadRequestError(ErrorStrings.INVALID_EMAIL_OR_PASSWORD)
+        );
 
       const token = Helpers.createToken(user._id, user.email);
       Helpers.createCookie(res, token);
