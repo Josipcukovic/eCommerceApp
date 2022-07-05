@@ -11,13 +11,22 @@ const Product = () => {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
-        console.log(res.data.products);
         setProducts(res.data.products);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  const removeProduct = (product) => {
+    axios
+      .delete("http://localhost:3003/product/" + product._id, {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(window.location.reload());
+  };
+
   return (
     <>
       {products.map((product) => {
@@ -31,6 +40,16 @@ const Product = () => {
                 <h3>{product.name}</h3>
                 <div className="price">
                   <h4>${product.price}.00</h4>
+                </div>
+              </div>
+              <div className="cart-items-function">
+                <div className="removeCart">
+                  <button
+                    className="box-button"
+                    onClick={() => removeProduct(product)}
+                  >
+                    <i className="fa -solid fa-xmark"></i>
+                  </button>
                 </div>
               </div>
             </div>

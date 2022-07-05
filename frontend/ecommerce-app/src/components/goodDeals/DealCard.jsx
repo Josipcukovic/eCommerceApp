@@ -66,7 +66,10 @@ const DealCard = ({ addToCart }) => {
                   <h3>{product.name}</h3>
                   <div className="price">
                     <h4>${product.price}.00</h4>
-                    <button onClick={() => addToCart(product)}>
+                    <button
+                      className="box-button"
+                      onClick={() => addToCart(product)}
+                    >
                       <i className="fa fa-plus"></i>
                     </button>
                   </div>

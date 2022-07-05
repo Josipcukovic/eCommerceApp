@@ -11,6 +11,7 @@ import axios from "axios";
 import AuthContext from "./components/context/AuthContext";
 import NewProduct from "./components/admin/NewProduct";
 import AllProducts from "./components/admin/AllProducts";
+import Orders from "./components/admin/Orders";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -101,6 +102,10 @@ function App() {
           <Route path="/allProducts">
             <Header />
             <AllProducts />
+          </Route>
+          <Route path="/orders">
+            <Header />
+            <Orders />
           </Route>
         </Switch>
       </Router>

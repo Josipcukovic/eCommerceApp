@@ -1,11 +1,40 @@
 import React from "react";
 import "../../styles/index.min.css";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Cart = ({ cartItem, addToCart, decreaseQuantity, removeCart }) => {
   const totalPrice = cartItem.reduce(
     (price, item) => price + item.qty * item.price,
     0
   );
+
+  const history = useHistory();
+
+  async function handleConfirm(e) {
+    e.preventDefault();
+    const confirmData = {};
+
+    confirmData.items = cartItem.map((item) => {
+      return {
+        productId: item._id,
+        quantity: item.qty,
+        totalPrice: item.price * item.qty,
+      };
+    });
+    confirmData.totalPrice = totalPrice;
+
+    await axios.post(
+      "http://localhost:3003/cart",
+      JSON.stringify(confirmData),
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    history.push("/home");
+  }
+
   return (
     <>
       <section className="cart-items">
@@ -36,20 +65,23 @@ const Cart = ({ cartItem, addToCart, decreaseQuantity, removeCart }) => {
                   </div>
                   <div className="cart-items-function">
                     <div className="removeCart">
-                      <button onClick={() => removeCart(item)}>
+                      <button
+                        className="box-button"
+                        onClick={() => removeCart(item)}
+                      >
                         <i className="fa -solid fa-xmark"></i>
                       </button>
                     </div>
 
                     <div className="cartControl d_flex">
                       <button
-                        className="incrementCart"
+                        className="incrementCart  box-button"
                         onClick={() => addToCart(item)}
                       >
                         <i className="fa fa-plus"></i>
                       </button>
                       <button
-                        className="decrementCart"
+                        className="decrementCart box-button"
                         onClick={() => decreaseQuantity(item)}
                       >
                         <i className="fa fa-minus"></i>
@@ -62,10 +94,17 @@ const Cart = ({ cartItem, addToCart, decreaseQuantity, removeCart }) => {
           </div>
           <div className="cart-total product">
             <h2>Shopping Cart Summary</h2>
-            <div className="d_flex">
+            <div>
               <h4>Total Price: </h4>
               <h3>${totalPrice}</h3>
             </div>
+            <button
+              type="submit"
+              className="button-confirm"
+              onClick={handleConfirm}
+            >
+              Confirm
+            </button>
           </div>
         </div>
       </section>

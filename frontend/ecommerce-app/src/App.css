@@ -191,7 +191,7 @@ button {
   margin-top: 20px;
 }
 
-.product button {
+.product .box-button {
   background: none;
   color: #121ec8;
   font-size: 20px;
@@ -251,4 +251,15 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+}
+
+.button-confirm {
+  width: 330px;
+  height: 36px;
+  background: #121ec8;
+  border: 1px solid #121ec8;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
 }
