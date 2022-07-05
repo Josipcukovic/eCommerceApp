@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import isURL from "validator/lib/isURL";
-import { Brands, ProductCategories } from "../constants/appConstants";
+import { ProductCategories } from "../constants/appConstants";
 
 interface ProductInput {
   pictureUrl: string;
@@ -8,7 +8,6 @@ interface ProductInput {
   rating: number;
   price: number;
   category: string;
-  brand: string;
   discount: number;
 }
 
@@ -44,11 +43,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ProductCategories,
-  },
-  brand: {
-    type: String,
-    required: true,
-    enum: Brands,
   },
   discount: {
     type: Number,

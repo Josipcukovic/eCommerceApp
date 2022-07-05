@@ -26,21 +26,8 @@ enum ProductCategories {
   Electronic = "Electronic",
   Cars = "Cars",
   HomeGarden = "Home & Garden",
-  Gifts = "Gifts",
-  Music = "Music",
   HealthBeauty = "Health & Beauty",
-  Pets = "Pets",
-  BabyToys = "Baby Toys",
   Books = "Books",
-}
-
-enum Brands {
-  Apple = "Apple",
-  Samsung = "Samsung",
-  Oppo = "Oppo",
-  Vivo = "Vivo",
-  Redmi = "Redmi",
-  Sony = "Sony",
 }
 
 const AppConstants = {
@@ -54,7 +41,6 @@ const AppConstants = {
   cookieExpireTime: 60 * 60 * 24 * 1000,
   oneDayInMs: 24 * 60 * 60 * 1000,
   ProductCategories,
-  Brands,
 };
 
 export = AppConstants;

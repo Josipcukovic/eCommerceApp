@@ -11,7 +11,12 @@ class CartRepository {
   }
 
   static async getAllCarts(pageSize: number, skip: number) {
-    const carts = await cartModel.find({ shipped: false }).sort("-createdAt").skip(skip).limit(pageSize);
+    const carts = await cartModel
+      .find({ shipped: false })
+      .sort("-createdAt")
+      .skip(skip)
+      .limit(pageSize)
+      .populate("items.productId");
 
     const cartCount = await cartModel.countDocuments({ shipped: false });
 
