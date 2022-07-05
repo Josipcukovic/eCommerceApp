@@ -4,11 +4,6 @@ import logo from "../../assets/images/ecommerce.png";
 import axios from "axios";
 
 const Search = ({ cartItem }) => {
-  window.addEventListener("scroll", () => {
-    const search = document.querySelector(".search");
-    search.classList.toggle("search--active", window.scrollY > 100);
-  });
-
   const handleLogout = () => {
     axios.get("http://localhost:3003/auth/logout", {
       withCredentials: true,
@@ -32,7 +27,7 @@ const Search = ({ cartItem }) => {
 
           <div className="icon f_flex width">
             <Link to="/" onClick={handleLogout}>
-              <i className="fa fa-user icon-circle"></i>
+              <i className="fa fa-sign-out icon-circle"></i>
             </Link>
             <div className="cart">
               <Link to="/cart">

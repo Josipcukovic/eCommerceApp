@@ -477,6 +477,45 @@ main .need_account .register p {
   height: 130px;
 }
 
+.user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+
+.user__details {
+  -webkit-box-shadow: #2b3407 0px 4px 16px;
+          box-shadow: #2b3407 0px 4px 16px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 300px;
+}
+
+.user h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.user h4 {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: 400;
+  color: grey;
+}
+
+.user h4 span {
+  color: #121ec8;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -44,7 +44,6 @@ const DealCard = ({ addToCart }) => {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
-        console.log(res.data.products);
         setProducts(res.data.products);
       })
       .catch((err) => {

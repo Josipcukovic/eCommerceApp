@@ -6,6 +6,7 @@ import Cart from "./components/cart/Cart";
 import { useState } from "react";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import User from "./pages/User";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -69,6 +70,10 @@ function App() {
               decreaseQuantity={decreaseQuantity}
               removeCart={removeCart}
             />
+          </Route>
+          <Route path="/user" exact>
+            <Header cartItem={cartItem} />
+            <User />
           </Route>
         </Switch>
       </Router>
