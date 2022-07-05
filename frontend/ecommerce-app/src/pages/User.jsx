@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/index.min.css";
 
 const User = () => {
-  const [userData, setUserData] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     axios
@@ -12,8 +12,7 @@ const User = () => {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
-        console.log(Array(res.data));
-        setUserData(Array(res.data));
+        setUser(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -22,24 +21,20 @@ const User = () => {
 
   return (
     <>
-      {userData.map((user) => {
-        return (
-          <div className="user" key={user._id}>
-            <div className="user__details">
-              <h1>User info</h1>
-              <h4>
-                First Name: <span>{user.firstName}</span>
-                <br />
-                Last Name: <span>{user.lastName}</span>
-                <br />
-                Email: <span>{user.email}</span>
-                <br />
-                Role: <span>{user.role}</span>
-              </h4>
-            </div>
-          </div>
-        );
-      })}
+      <div className="user" key={user._id}>
+        <div className="user__details">
+          <h1>User info</h1>
+          <h4>
+            First Name: <span>{user.firstName}</span>
+            <br />
+            Last Name: <span>{user.lastName}</span>
+            <br />
+            Email: <span>{user.email}</span>
+            <br />
+            Role: <span>{user.role}</span>
+          </h4>
+        </div>
+      </div>
     </>
   );
 };

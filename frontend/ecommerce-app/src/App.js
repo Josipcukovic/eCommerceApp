@@ -3,13 +3,31 @@ import Header from "./components/header/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Pages from "./pages/Pages";
 import Cart from "./components/cart/Cart";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import User from "./pages/User";
+import axios from "axios";
+import AuthContext from "./components/context/AuthContext";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
+  const { setCurrentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3003/auth/currentUser", {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((res) => {
+        setCurrentUser(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const addToCart = (product) => {
     const productCart = cartItem.find((item) => item._id === product._id);

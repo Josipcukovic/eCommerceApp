@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import AuthContext from "../context/AuthContext";
 
 const RegisterForm = () => {
   const emailRef = useRef();
@@ -8,6 +10,11 @@ const RegisterForm = () => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const history = useHistory();
+  const { setCurrentUser, currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log(currentUser);
+  }, [currentUser]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +26,7 @@ const RegisterForm = () => {
       password: passwordRef.current.value,
     };
 
-    await axios.post(
+    const response = await axios.post(
       "http://localhost:3003/auth/register",
       JSON.stringify(user),
       {
@@ -27,7 +34,8 @@ const RegisterForm = () => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    history.push("/home");
+    setCurrentUser(response.data);
+    // history.push("/home");
   }
 
   return (

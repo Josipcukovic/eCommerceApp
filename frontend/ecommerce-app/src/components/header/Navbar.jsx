@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { useContext } from "react";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <>
@@ -14,35 +17,72 @@ const Navbar = () => {
               Categories <i className="fa fa-chevron-down"></i>
             </h4>
           </div>
-          <div className="navlink">
-            <ul
-              className={
-                mobileMenu ? "navl-links-mobileMenu" : "link f_flex capitalize"
-              }
-              onClick={() => setMobileMenu(false)}
-            >
-              <li>
-                <Link to="/home">Home</Link>
-              </li>
-              <li>
-                <Link to="/user">User Account</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
+          {currentUser && currentUser.role === "user" && (
+            <div className="navlink">
+              <ul
+                className={
+                  mobileMenu
+                    ? "navl-links-mobileMenu"
+                    : "link f_flex capitalize"
+                }
+                onClick={() => setMobileMenu(false)}
+              >
+                <li>
+                  <Link to="/home">Home</Link>
+                </li>
+                <li>
+                  <Link to="/user">User Account</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
+              </ul>
 
-            <button
-              className="toggle"
-              onClick={() => setMobileMenu(!mobileMenu)}
-            >
-              {mobileMenu ? (
-                <i className="fas fa-times close home-btn"></i>
-              ) : (
-                <i className="fa-solid fa-bars open"></i>
-              )}
-            </button>
-          </div>
+              <button
+                className="toggle"
+                onClick={() => setMobileMenu(!mobileMenu)}
+              >
+                {mobileMenu ? (
+                  <i className="fas fa-times close home-btn"></i>
+                ) : (
+                  <i className="fa-solid fa-bars open"></i>
+                )}
+              </button>
+            </div>
+          )}
+          {currentUser && currentUser.role === "admin" && (
+            <div className="navlink">
+              <ul
+                className={
+                  mobileMenu
+                    ? "navl-links-mobileMenu"
+                    : "link f_flex capitalize"
+                }
+                onClick={() => setMobileMenu(false)}
+              >
+                <li>
+                  <Link to="/create">Create</Link>
+                </li>
+                <li>
+                  <Link to="/user">User Account</Link>
+                </li>
+                <li>
+                  <Link to="/allProducts">All Products</Link>
+                </li>
+              </ul>
+
+              <button
+                className="toggle"
+                onClick={() => setMobileMenu(!mobileMenu)}
+              >
+                {mobileMenu ? (
+                  <i className="fas fa-times close home-btn"></i>
+                ) : (
+                  <i className="fa-solid fa-bars open"></i>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </header>
     </>

@@ -2,11 +2,14 @@ import React from "react";
 import { useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 const LoginForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const history = useHistory();
+  const { setCurrentUser } = useContext(AuthContext);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -16,10 +19,15 @@ const LoginForm = () => {
       password: passwordRef.current.value,
     };
 
-    await axios.post("http://localhost:3003/auth/login", JSON.stringify(user), {
-      withCredentials: true,
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await axios.post(
+      "http://localhost:3003/auth/login",
+      JSON.stringify(user),
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    setCurrentUser(response.data);
     history.push("/home");
   }
 
