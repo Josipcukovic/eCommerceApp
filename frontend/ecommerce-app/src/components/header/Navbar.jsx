@@ -6,14 +6,31 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const { currentUser } = useContext(AuthContext);
 
+  const toggleCategories = () => {
+    if (document.querySelector(".category").style.display === "block") {
+      document.querySelector(".category").style.display = "none";
+      document
+        .getElementById("category-menu")
+        .classList.remove("fa-chevron-down");
+      document.getElementById("category-menu").classList.add("fa-chevron-up");
+    } else {
+      document.querySelector(".category").style.display = "block";
+      document.getElementById("category-menu").classList.add("fa-chevron-down");
+      document
+        .getElementById("category-menu")
+        .classList.remove("fa-chevron-up");
+    }
+  };
+
   return (
     <>
       <header className="header">
         <div className="container d_flex">
           <div className="categories d_flex">
             <span className="fa-solid fa-border-all"></span>
-            <h4>
-              Categories <i className="fa fa-chevron-down"></i>
+            <h4 onClick={() => toggleCategories()}>
+              Categories{" "}
+              <i id="category-menu" className="fa fa-chevron-down"></i>
             </h4>
           </div>
           {currentUser && currentUser.role === "user" && (
@@ -31,9 +48,6 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link to="/user">User Account</Link>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
 

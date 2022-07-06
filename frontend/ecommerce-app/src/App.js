@@ -12,6 +12,8 @@ import AuthContext from "./components/context/AuthContext";
 import NewProduct from "./components/admin/NewProduct";
 import AllProducts from "./components/admin/AllProducts";
 import Orders from "./components/admin/Orders";
+import SearchedProducts from "./components/search/SearchedProducts";
+import CategoryProducts from "./components/category/CategoryProducts";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -106,6 +108,14 @@ function App() {
           <Route path="/orders">
             <Header />
             <Orders />
+          </Route>
+          <Route path="/searchedProducts">
+            <Header cartItem={cartItem} />
+            <SearchedProducts addToCart={addToCart} />
+          </Route>
+          <Route path="/categoryProducts">
+            <Header cartItem={cartItem} />
+            <CategoryProducts addToCart={addToCart} />
           </Route>
         </Switch>
       </Router>
