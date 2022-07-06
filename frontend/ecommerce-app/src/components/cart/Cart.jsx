@@ -24,14 +24,12 @@ const Cart = ({ cartItem, addToCart, decreaseQuantity, removeCart }) => {
     });
     confirmData.totalPrice = totalPrice;
 
-    await axios.post(
-      "http://localhost:3003/cart",
-      JSON.stringify(confirmData),
-      {
+    await axios
+      .post("http://localhost:3003/cart", JSON.stringify(confirmData), {
         withCredentials: true,
         headers: { "Content-Type": "application/json" },
-      }
-    );
+      })
+      .then((cartItem.length = 0));
     history.push("/home");
   }
 
