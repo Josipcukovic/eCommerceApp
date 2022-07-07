@@ -73,13 +73,23 @@ const Orders = () => {
 
   return (
     <section>
+      <div className="order__headline">
+        <h2>Orders</h2>
+      </div>
       {Object.keys(orders).length !== 0 &&
         orders.carts.map((order) => {
           return (
-            <section className="d_flex">
+            <section className="container d_flex">
               {renderProduct(order)}
-              <div>
-                <button onClick={() => shipOrder(order._id)}>Shipped</button>
+              <div className="cart-total product">
+                <h4>Total Price: </h4>
+                <h3>${order.totalPrice}</h3>
+                <button
+                  className="button-confirm"
+                  onClick={() => shipOrder(order._id)}
+                >
+                  Ship Order
+                </button>
               </div>
             </section>
           );

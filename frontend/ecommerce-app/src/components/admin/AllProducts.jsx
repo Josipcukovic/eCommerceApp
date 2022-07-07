@@ -7,8 +7,8 @@ const AllProducts = () => {
       <section className="shop background">
         <div className="container d_flex">
           <div className="contentWidth">
-            <div className="heading d_flex">
-              <h2>Products</h2>
+            <div className="order__headline">
+              <h2>All Products</h2>
             </div>
             <div className="product-content grid1">
               <Product />

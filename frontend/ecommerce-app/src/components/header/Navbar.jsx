@@ -26,10 +26,10 @@ const Navbar = () => {
     <>
       <header className="header">
         <div className="container d_flex">
-          <div className="categories d_flex">
+          <div className="categories d_flex" onClick={() => toggleCategories()}>
             <span className="fa-solid fa-border-all"></span>
-            <h4 onClick={() => toggleCategories()}>
-              Categories{" "}
+            <h4>
+              Categories
               <i id="category-menu" className="fa fa-chevron-down"></i>
             </h4>
           </div>

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 
 const RegisterForm = () => {
@@ -10,7 +10,7 @@ const RegisterForm = () => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const history = useHistory();
-  const { setCurrentUser, currentUser } = useContext(AuthContext);
+  const { setCurrentUser } = useContext(AuthContext);
 
   async function handleSubmit(e) {
     e.preventDefault();

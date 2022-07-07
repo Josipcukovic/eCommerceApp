@@ -29,7 +29,7 @@ const SearchedProducts = ({ addToCart }) => {
     <>
       {products.map((product) => {
         return (
-          <div className="box" key={product._id}>
+          <div className="container d_flex" key={product._id}>
             <div className="product mtop" key={product._id}>
               <div className="img">
                 <span className="discount">{product.discount}% Off</span>

@@ -490,6 +490,13 @@ main .need_account .register p {
   margin-top: 30px;
 }
 
+.order__headline {
+  position: relative;
+  padding: 30px;
+  text-align: center;
+  font-size: 25px;
+}
+
 .user {
   display: -webkit-box;
   display: -ms-flexbox;
